@@ -6,23 +6,28 @@
 // 8 => 8
 // 9542 => 9,5,4,2
 
-Console.WriteLine("Введите целое число от 1 до N ");
+Console.Clear();
+
+Console.WriteLine("Введите натуральное число от 1 до N ");
 int number = Convert.ToInt32(Console.ReadLine());
+string digit = string.Empty;
+int temp = number;
 
+if (number < 10)
+    Console.WriteLine($" {number} => {number} ");
+else
+{
+    for (; number > 0; number /= 10)
+    //for (int index = 1; index <= number; index++) #легкое решение с запятой на конце
+    {
+        if(number == temp) digit = number % 10 + " "+ digit;
+        else digit = number % 10 + ","+ digit; // digit += .... в конец стрроки в обратном направлении
+                                           //  number % 10 + "," + digit; в начало строки
 
-
-Console.WriteLine ($" => {number}");
-
-//int count = 0;
-//int index = 0;
-
-// while (true)
-// {
-// 	if (number % 2 == 0)
-// 	{
-// 		Console.Write(index + " ");
-// 		count++;
-//     }
-// }
+        //Console.Write(", {0}", index); #легкое решение с запятой на конце
+        //Console.Write($" {index},");
+    }
+    Console.Write(digit);
+}
 
 
